@@ -398,7 +398,7 @@ def _is_start_piece_sp(piece):
   special_pieces.add(u"£".encode("utf-8"))
   # Note(mingdachen):
   # For foreign characters, we always treat them as a whole piece.
-  english_chars = set(list("abcdefghijklmnopqrstuvwxyz"))
+  english_chars = set(list("abcdefghijklmnopqrstuvwxyzåäö"))
   if (six.ensure_str(piece).startswith("▁") or
       six.ensure_str(piece).startswith("<") or piece in special_pieces or
       not all([i.lower() in english_chars.union(special_pieces)
