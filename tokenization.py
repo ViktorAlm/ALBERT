@@ -96,7 +96,10 @@ def preprocess_text(inputs, remove_space=True, lower=False):
       outputs = six.ensure_text(outputs, "latin-1")
 
   outputs = unicodedata.normalize("NFKD", outputs)
-  outputs = "".join([c for c in outputs if not unicodedata.combining(c)])
+
+  #keep åäö
+  #outputs = "".join([c for c in outputs if not unicodedata.combining(c)])
+
   if lower:
     outputs = outputs.lower()
 
@@ -117,8 +120,8 @@ def encode_pieces(sp_model, text, return_unicode=True, sample=False):
   for piece in pieces:
     piece = printable_text(piece)
     if len(piece) > 1 and piece[-1] == "," and piece[-2].isdigit():
-      cur_pieces = sp_model.EncodeAsPieces(
-          six.ensure_binary(piece[:-1]).replace(SPIECE_UNDERLINE, b""))
+        cur_pieces = sp_model.EncodeAsPieces(
+            six.ensure_str(piece[:-1]).replace(SPIECE_UNDERLINE.decode("utf-8"), ""))
       if piece[0] != SPIECE_UNDERLINE and cur_pieces[0][0] == SPIECE_UNDERLINE:
         if len(cur_pieces[0]) == 1:
           cur_pieces = cur_pieces[1:]
