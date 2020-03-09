@@ -120,8 +120,7 @@ def encode_pieces(sp_model, text, return_unicode=True, sample=False):
   for piece in pieces:
     piece = printable_text(piece)
     if len(piece) > 1 and piece[-1] == "," and piece[-2].isdigit():
-        cur_pieces = sp_model.EncodeAsPieces(
-            six.ensure_str(piece[:-1]).replace(SPIECE_UNDERLINE.decode("utf-8"), ""))
+      cur_pieces = sp_model.EncodeAsPieces(six.ensure_str(piece[:-1]).replace(SPIECE_UNDERLINE.decode("utf-8"), ""))
       if piece[0] != SPIECE_UNDERLINE and cur_pieces[0][0] == SPIECE_UNDERLINE:
         if len(cur_pieces[0]) == 1:
           cur_pieces = cur_pieces[1:]
