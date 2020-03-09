@@ -96,10 +96,7 @@ def preprocess_text(inputs, remove_space=True, lower=False):
       outputs = six.ensure_text(outputs, "latin-1")
 
   outputs = unicodedata.normalize("NFKD", outputs)
-  
-  #This removes åäö
-  #outputs = "".join([c for c in outputs if not unicodedata.combining(c)])
-  
+  outputs = "".join([c for c in outputs if not unicodedata.combining(c)])
   if lower:
     outputs = outputs.lower()
 
