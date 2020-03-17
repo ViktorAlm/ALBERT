@@ -31,7 +31,7 @@ import random
 
 BUCKET_NAME = "bertsweeu" #@param {type:"string"}
 MODEL_DIR = "albert_base_three" #@param {type:"string"}
-PRETRAINING_DIR = "albert_data" #@param {type:"string"}
+PRETRAINING_DIR = "albert_data_test" #@param {type:"string"}
 
 # Training procedure config
 NUM_TPU_CORES = 8
@@ -100,14 +100,14 @@ flags.DEFINE_float("poly_power", 1, "The power of poly decay.")
 
 flags.DEFINE_integer("num_train_steps", 5000000, "Number of training steps.")
 
-flags.DEFINE_integer("num_warmup_steps", 4125, "Number of warmup steps.")
+flags.DEFINE_integer("num_warmup_steps", 5125, "Number of warmup steps.")
 
 flags.DEFINE_integer("start_warmup_step", 0, "The starting step of warmup.")
 
 flags.DEFINE_integer("save_checkpoints_steps", 5000,
                      "How often to save the model checkpoint.")
 
-flags.DEFINE_integer("keep_checkpoint_max", 2000,
+flags.DEFINE_integer("keep_checkpoint_max", 200,
                      "How many checkpoints to keep.")
 
 flags.DEFINE_integer("iterations_per_loop", 1000,
@@ -596,4 +596,3 @@ if __name__ == "__main__":
   flags.mark_flag_as_required("albert_config_file")
   flags.mark_flag_as_required("output_dir")
   tf.app.run()
-

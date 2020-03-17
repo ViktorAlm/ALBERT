@@ -31,7 +31,7 @@ import random
 
 BUCKET_NAME = "bertsweeu" #@param {type:"string"}
 MODEL_DIR = "albert_large_two" #@param {type:"string"}
-PRETRAINING_DIR = "albert_data" #@param {type:"string"}
+PRETRAINING_DIR = "albert_data_test" #@param {type:"string"}
 
 # Training procedure config
 NUM_TPU_CORES = 6
@@ -100,7 +100,7 @@ flags.DEFINE_float("poly_power", 1.0, "The power of poly decay.")
 
 flags.DEFINE_integer("num_train_steps", 5000000, "Number of training steps.")
 
-flags.DEFINE_integer("num_warmup_steps", 3125, "Number of warmup steps.")
+flags.DEFINE_integer("num_warmup_steps", 5125, "Number of warmup steps.")
 
 flags.DEFINE_integer("start_warmup_step", 0, "The starting step of warmup.")
 
@@ -596,4 +596,3 @@ if __name__ == "__main__":
   flags.mark_flag_as_required("albert_config_file")
   flags.mark_flag_as_required("output_dir")
   tf.app.run()
-

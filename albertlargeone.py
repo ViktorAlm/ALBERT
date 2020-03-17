@@ -31,7 +31,7 @@ import random
 
 BUCKET_NAME = "bertsweeu" #@param {type:"string"}
 MODEL_DIR = "albert_large_one" #@param {type:"string"}
-PRETRAINING_DIR = "albert_data" #@param {type:"string"}
+PRETRAINING_DIR = "albert_data_test" #@param {type:"string"}
 
 # Training procedure config
 NUM_TPU_CORES = 6
@@ -596,4 +596,3 @@ if __name__ == "__main__":
   flags.mark_flag_as_required("albert_config_file")
   flags.mark_flag_as_required("output_dir")
   tf.app.run()
-
