@@ -69,7 +69,7 @@ flags.DEFINE_string(
 
 ## Other parameters
 flags.DEFINE_string(
-    "init_checkpoint", BERT_GCS_DIR,
+    "init_checkpoint", None,
     "Initial checkpoint (usually from a pre-trained ALBERT model).")
 
 flags.DEFINE_integer(
@@ -121,7 +121,7 @@ flags.DEFINE_bool("init_from_group0", False, "Whether to initialize"
                   "parameters of other groups from group 0")
 
 tf.flags.DEFINE_string(
-    "tpu_name", "albertlargetwo",
+    "tpu_name", "albertlargethree",
     "The Cloud TPU to use for training. This should be either the name "
     "used when creating the Cloud TPU, or a grpc://ip.address.of.tpu:8470 "
     "url.")

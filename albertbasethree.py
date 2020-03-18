@@ -121,7 +121,7 @@ flags.DEFINE_bool("init_from_group0", False, "Whether to initialize"
                   "parameters of other groups from group 0")
 
 tf.flags.DEFINE_string(
-    "tpu_name", "albertthree",
+    "tpu_name", "albertbasethree",
     "The Cloud TPU to use for training. This should be either the name "
     "used when creating the Cloud TPU, or a grpc://ip.address.of.tpu:8470 "
     "url.")
