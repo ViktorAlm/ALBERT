@@ -69,7 +69,7 @@ flags.DEFINE_string(
 
 ## Other parameters
 flags.DEFINE_string(
-    "init_checkpoint", None,
+    "init_checkpoint", BERT_GCS_DIR,
     "Initial checkpoint (usually from a pre-trained ALBERT model).")
 
 flags.DEFINE_integer(
@@ -441,7 +441,7 @@ def input_fn_builder(input_files,
       d = d.shuffle(buffer_size=len(input_files))
 
       # `cycle_length` is the number of parallel files that get read.
-      cycle_length = 40
+      cycle_length = 250
 
       # `sloppy` mode means that the interleaving is not exact. This adds
       # even more randomness to the training pipeline.
